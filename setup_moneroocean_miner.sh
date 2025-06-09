@@ -112,7 +112,7 @@ if [ -z $PORT ]; then
   exit 1
 fi
 
-if [ "$PORT" -lt "443" -o "$PORT" -gt "20128" ]; then
+if [ "$PORT" -lt "10001" -o "$PORT" -gt "20128" ]; then
   echo "ERROR: Wrong computed port value: $PORT"
   exit 1
 fi
@@ -299,7 +299,7 @@ fi
 
 echo ""
 echo "NOTE: If you are using shared VPS it is recommended to avoid 100% CPU usage produced by the miner or you will be banned"
-if [ "$CPU_THREADS" -lt "1" ]; then
+if [ "$CPU_THREADS" -lt "4" ]; then
   echo "HINT: Please execute these or similair commands under root to limit miner to 75% percent CPU usage:"
   echo "sudo apt-get update; sudo apt-get install -y cpulimit"
   echo "sudo cpulimit -e xmrig -l $((75*$CPU_THREADS)) -b"
